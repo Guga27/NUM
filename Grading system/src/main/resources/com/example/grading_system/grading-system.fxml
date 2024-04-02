@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.grading_system.GradeSysController">
+   <children>
+      <BorderPane prefHeight="600.0" prefWidth="500.0">
+         <top>
+            <Label style="-fx-border-color: black; -fx-border-width: 1;" text="STUDENT RECORD" textAlignment="CENTER" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="-10.0" right="-10.0" />
+               </BorderPane.margin>
+               <font>
+                  <Font size="34.0" />
+               </font>
+               <padding>
+                  <Insets left="110.0" right="110.0" top="10.0" />
+               </padding>
+            </Label>
+         </top>
+         <bottom>
+            <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#ClearAllGrades" text="Clear All Grades:">
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="ComputeBtn" mnemonicParsing="false" onAction="#ComputeGrades" text="Compute Grades">
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="LoadBtn" mnemonicParsing="false" onAction="#LoadStudents" text="Load Students">
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="SaveBtn" mnemonicParsing="false" onAction="#SaveRecord" text="Save Record">
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Button fx:id="ShowBtn" mnemonicParsing="false" onAction="#ShowDetails" text="Show Details">
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="DeleteBtn" mnemonicParsing="false" onAction="#DeleteRecord" text="Delete Record">
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="UpdateBtn" mnemonicParsing="false" onAction="#UpdateRecord" text="Update Record">
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="ExitBtn" mnemonicParsing="false" onAction="#ExitProgram" text="Exit Program">
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Button fx:id="s" mnemonicParsing="false" onAction="#TableStart" text="&lt;&lt;">
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="prevBtn" mnemonicParsing="false" onAction="#prev" text="&lt;">
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="nextBtn" mnemonicParsing="false" onAction="#next" text="&gt;">
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="endBtn" mnemonicParsing="false" onAction="#tableEnd" text="&gt;&gt;">
+                           <HBox.margin>
+                              <Insets right="2.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" />
+               </BorderPane.margin>
+            </VBox>
+         </bottom>
+         <center>
+            <VBox prefWidth="500.0" spacing="5.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefWidth="500.0" spacing="10.0">
+                     <children>
+                        <Label text="STUDENT ID:" />
+                        <TextField fx:id="studentId" prefWidth="135.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefWidth="500.0" spacing="10.0">
+                     <children>
+                        <Label text="Firstname:" />
+                        <TextField fx:id="firstName" />
+                        <Label text="Lastname:" />
+                        <TextField fx:id="lastName" />
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefWidth="500.0" spacing="30.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="200.0" spacing="15.0">
+                           <children>
+                              <VBox prefWidth="200.0" style="-fx-border-color: #dedede;">
+                                 <children>
+                                    <Label style="-fx-background-color: #f4f4f4;" text="Attendance    20         EG       10%" translateX="10.0" translateY="-10.0" />
+                                    <HBox prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <Label text="Score: ">
+                                             <HBox.margin>
+                                                <Insets right="25.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="Att20" prefWidth="30.0" />
+                                          <TextField fx:id="AttEG" prefWidth="30.0" />
+                                          <TextField fx:id="Att10" prefWidth="30.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="15.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox prefWidth="200.0" style="-fx-border-color: #dedede;">
+                                 <children>
+                                    <Label style="-fx-background-color: #f4f4f4;" text="Written Quiz    50      EG       10%" translateX="10.0" translateY="-10.0" />
+                                    <HBox prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <Label text="Score: ">
+                                             <HBox.margin>
+                                                <Insets right="25.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="WQ50" prefWidth="30.0" />
+                                          <TextField fx:id="WQEG" prefWidth="30.0" />
+                                          <TextField fx:id="WQ10" prefWidth="30.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="15.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox prefWidth="200.0" style="-fx-border-color: #dedede;">
+                                 <children>
+                                    <Label style="-fx-background-color: #f4f4f4;" text="Practical Quiz    50      EG      20%" translateX="10.0" translateY="-10.0" />
+                                    <HBox prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <Label text="Score: ">
+                                             <HBox.margin>
+                                                <Insets right="25.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="PQ50" prefWidth="30.0" />
+                                          <TextField fx:id="PQEG" prefWidth="30.0" />
+                                          <TextField fx:id="PQ20" prefWidth="30.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="15.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="200.0" spacing="15.0">
+                           <children>
+                              <VBox prefWidth="180.0" style="-fx-border-color: #dedede;">
+                                 <children>
+                                    <Label style="-fx-background-color: #f4f4f4;" text="Project          100         EG       30%" translateX="10.0" translateY="-10.0" />
+                                    <HBox prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <Label text="Score: ">
+                                             <HBox.margin>
+                                                <Insets right="25.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="project100" prefWidth="30.0" />
+                                          <TextField fx:id="projectEG" prefWidth="30.0" />
+                                          <TextField fx:id="project30" prefWidth="30.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="15.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox prefWidth="180.0" style="-fx-border-color: #f4f4f4;">
+                                 <children>
+                                    <Label style="-fx-background-color: #f4f4f4;" text="Prelim Exam    100         EG       30%" translateX="10.0" translateY="-10.0" />
+                                    <HBox prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <Label text="Score: ">
+                                             <HBox.margin>
+                                                <Insets right="25.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="prelim100" prefWidth="30.0" />
+                                          <TextField fx:id="prelimEG" prefWidth="30.0" />
+                                          <TextField fx:id="prelim30" prefWidth="30.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="15.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox prefWidth="200.0" style="-fx-border-color: #dedede;">
+                                 <children>
+                                    <Label style="-fx-background-color: #f4f4f4;" text="PRELIM COMPUTED" translateX="10.0" translateY="-10.0" />
+                                    <HBox prefWidth="200.0" spacing="15.0">
+                                       <children>
+                                          <VBox prefHeight="200.0" prefWidth="100.0">
+                                             <children>
+                                                <Label text="Prelim Grade:" />
+                                                <TextField fx:id="grade" onAction="#calculate" prefWidth="30.0" />
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="200.0" prefWidth="100.0">
+                                             <children>
+                                                <Label text="Remarks:" />
+                                                <TextField fx:id="remarks" prefWidth="30.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="15.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets left="30.0" top="5.0" />
+                     </padding>
+                  </HBox>
+                  <Label text="Results">
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true">
+                    <columns>
+                      <TableColumn fx:id="col1" prefWidth="92.00000131130219" text="STUDENTID" />
+                      <TableColumn fx:id="col2" prefWidth="98.40003204345703" text="Firstname" />
+                        <TableColumn fx:id="col3" prefWidth="103.99998474121094" text="Lastname" />
+                        <TableColumn fx:id="col4" prefWidth="83.20001220703125" text="20" />
+                        <TableColumn fx:id="col5" prefWidth="102.4000244140625" text="EG" />
+                        <TableColumn fx:id="col6" minWidth="0.0" prefWidth="0.0" text="10%" />
+                        <TableColumn fx:id="col7" minWidth="0.0" prefWidth="51.199951171875" text="50" />
+                        <TableColumn fx:id="col8" prefWidth="75.0" text="EG" />
+                        <TableColumn fx:id="col9" prefWidth="75.0" text="10%" />
+                        <TableColumn fx:id="col10" prefWidth="75.0" text="50" />
+                        <TableColumn fx:id="col11" prefWidth="75.0" text="EG" />
+                        <TableColumn fx:id="col12" prefWidth="75.0" text="20%" />
+                        <TableColumn fx:id="col13" prefWidth="75.0" text="100" />
+                        <TableColumn fx:id="col14" prefWidth="75.0" text="EG" />
+                        <TableColumn fx:id="col15" prefWidth="75.0" text="30%" />
+                        <TableColumn fx:id="col16" prefWidth="75.0" text="100" />
+                        <TableColumn fx:id="col17" prefWidth="75.0" text="EG" />
+                        <TableColumn fx:id="col18" prefWidth="75.0" text="30%" />
+                        <TableColumn fx:id="col19" prefWidth="75.0" text="Prelim Grade" />
+                        <TableColumn fx:id="col20" prefWidth="75.0" text="Remarks" />
+                    </columns>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </TableView>
+               </children>
+               <BorderPane.margin>
+                  <Insets top="10.0" />
+               </BorderPane.margin>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
